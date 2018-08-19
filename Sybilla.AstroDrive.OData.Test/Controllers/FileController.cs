@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.OData;
+﻿using LinqToDB.EntityFrameworkCore;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNet.OData.Query;
 using Microsoft.AspNetCore.Mvc;
 using OData.Models;
@@ -32,7 +33,7 @@ namespace OData.Controllers
 
         public IActionResult Get()
         {
-            return Ok(_db.Files.AsQueryable());
+            return Ok(_db.Files.ToLinqToDB());
         }
 
         public IActionResult Get(int key)
